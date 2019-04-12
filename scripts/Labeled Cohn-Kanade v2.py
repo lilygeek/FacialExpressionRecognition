@@ -34,6 +34,9 @@ for file in os.listdir(os.fsencode(emotion_dir)):
                     
             # Copy these usable images to an output folder
             for img_file in os.listdir(os.fsencode(img_dir+"\\"+subfolder+"\\"+printable_new_folder)):
+                # Catches an unecessary file
+                if os.fsdecode(img_file) == ".DS_Store":
+                    continue
                 src = img_dir+"\\"+subfolder+"\\"+printable_new_folder+"\\"+os.fsdecode(img_file)
                 copy(src, dst)
                 all_samples.append([os.fsdecode(img_file),float(line.strip())])
