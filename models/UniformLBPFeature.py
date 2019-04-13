@@ -86,7 +86,7 @@ def get_lbp_with_region_feature(images_data, lbp_radius=1, lbp_point=8, row=7, c
         
         lbp=np.swapaxes(lbp,1,2).reshape(row*column,-1)
         r = np.apply_along_axis(np.histogram,1,lbp,bins=np.arrange(bin_num+1))
-        hist = np.concatenate(r[:,0])
+        hist[i] = np.concatenate(r[:,0])
 
     return hist
 
