@@ -89,7 +89,6 @@ def get_lbp_with_region_feature(images_data, lbp_radius=1, lbp_point=8, row=6, c
 
 
 def main():
-    '''
     ck_train_lists = map(lambda x: os.path.join(CK_DIR,'TrainList',x), os.listdir(os.path.join(CK_DIR,'TrainList')))
     ck_train_lists = list(ck_train_lists)
     ck_test_list = os.path.join(CK_DIR,'TestList/overall_test.csv')
@@ -120,7 +119,7 @@ def main():
     featureFile = open(os.path.join(feature_dir,'test.csv'), 'w')
     writer = csv.writer(featureFile)
     writer.writerows(hist)
-    '''
+    
     fer_train_lists = map(lambda x: os.path.join(FER_DIR,'TrainList',x), os.listdir(os.path.join(FER_DIR,'TrainList')))
     fer_train_lists = list(fer_train_lists)
     fer_test_list = os.path.join(FER_DIR,'TestList/overall_test.csv')
