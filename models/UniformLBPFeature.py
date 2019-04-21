@@ -94,7 +94,7 @@ def main():
     ck_train_lists = list(ck_train_lists)
     ck_test_list = os.path.join(CK_DIR,'TestList/overall_test.csv')
     types=['U50','i4']
-    for item in ck_train_lists[1:]:
+    for item in ck_train_lists:
         
         ind = item.split('_')
         mix_list = np.genfromtxt(item,dtype=types,delimiter=',',names='True')
@@ -125,7 +125,7 @@ def main():
     fer_train_lists = list(fer_train_lists)
     fer_test_list = os.path.join(FER_DIR,'TestList/overall_test.csv')
     types=['U50','i4']
-    for item in fer_train_lists[1:]:
+    for item in fer_train_lists:
         ind = item.split('_')
         mix_list = np.genfromtxt(item,dtype=types,delimiter=',',names='True')
         image_list = mix_list['True']
@@ -141,7 +141,7 @@ def main():
 
     mix_list = np.genfromtxt(fer_test_list,dtype=types,delimiter=',',names='True')
     image_list = mix_list['True']
-    data = load_images(image_list, 240, 240)
+    data = load_images(image_list, 48, 48, resize=False)
     hist = get_lbp_with_region_feature(data,1,8,2,2)
     feature_dir = os.path.join(FER_DIR,"LBPFeature/test/1_8_2_2")
     if not os.path.exists(feature_dir):
