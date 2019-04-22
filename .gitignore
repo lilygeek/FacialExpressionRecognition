@@ -1,3 +1,5 @@
-datasets
 ./Ds_Store
 .zip
+*.png
+*.jpg
+fer2013.csv
