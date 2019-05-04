@@ -20,14 +20,14 @@ for i=1:size(A,1)
         f= fullfile(image_folder, filenames(i).name); %to specify images names with full path and extension.
         our_images = imread(f); %to read images.
         BB = step(faceDetector, our_images); %BB is a rectangle which is drawn around the detected face portion.
-%         %crop the images
-%         for j = 1:size(BB,1)
-%             J= imcrop(our_images,BB(j,:));
-%         end
-%         baseFileName=filenames(i).name;%name of ith image data
-%         fullFileName = fullfile(Location_save, baseFileName);
-%         imwrite(J, fullFileName);% imread will save the images with the original names in the new location
-%         B=[B;(A(i,:))];% store the image info just like in A
-%     end
-% end
-% writetable(B,'ProcessedImageTable.csv')
+       %crop the images
+         for j = 1:size(BB,1)
+             J= imcrop(our_images,BB(j,:));
+         end
+         baseFileName=filenames(i).name;%name of ith image data
+         fullFileName = fullfile(Location_save, baseFileName);
+         imwrite(J, fullFileName);% imread will save the images with the original names in the new location
+         B=[B;(A(i,:))];% store the image info just like in A
+     end
+ end
+ writetable(B,'ProcessedImageTable.csv')
